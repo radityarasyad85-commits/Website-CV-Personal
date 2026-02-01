@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - SpongeBob SquarePants Theme</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #4A4A4A;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255,255,255,0.2) 0%, transparent 50%);
+            animation: bubbleFloat 20s infinite linear;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        @keyframes bubbleFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(-10px) rotate(240deg); }
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spongebob-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 8px solid #4A90E2;
+            margin: 0 auto 15px;
+            display: block;
+            animation: spongebobBounce 2s infinite;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes spongebobBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
+            40% { transform: translateY(-15px) scale(1.05); }
+            60% { transform: translateY(-8px) scale(1.02); }
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #4A90E2;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            margin-bottom: 5px;
+        }
+        
+        .title {
+            font-size: 1.3em;
+            color: #FF6B35;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            color: #4A90E2;
+            font-size: 2em;
+            border-bottom: 4px dashed #FF6B35;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            right: -40px;
+            top: 0;
+            font-size: 1.5em;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(255,249,196,0.8), rgba(255,255,255,0.9));
+            border-radius: 20px;
+            border-left: 6px solid #4A90E2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .contact-item {
+            background: #FFF9C4;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .contact-icon {
+            font-size: 2em;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .profile-text {
+            line-height: 1.8;
+            font-size: 1.1em;
+            text-align: justify;
+            background: rgba(255,255,255,0.6);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #FF6B35;
+        }
+        
+        li {
+            background: linear-gradient(135deg, #FFF9C4, #FFE4B5);
+            margin: 12px 0;
+            padding: 15px 20px 15px 45px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        li::before {
+            content: '⭐';
+            position: absolute;
+            left: 15px;
+            font-size: 1.4em;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .skill-item {
+            background: linear-gradient(135deg, #4A90E2, #357ABD);
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-bar {
+            background: rgba(255,255,255,0.2);
+            height: 8px;
+            border-radius: 4px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            height: 100%;
+            border-radius: 4px;
+            animation: progressFill 2s ease-out forwards;
+        }
+        
+        .skill-90 .skill-progress { width: 90%; animation-delay: 0.1s; }
+        .skill-80 .skill-progress { width: 80%; animation-delay: 0.2s; }
+        .skill-75 .skill-progress { width: 75%; animation-delay: 0.3s; }
+        
+        @keyframes progressFill {
+            from { width: 0%; }
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #4A90E2, #357ABD);
+            color: white;
+            border-radius: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 20px; margin: 10px; }
+            h1 { font-size: 2.2em; }
+            .spongebob-img { width: 100px; height: 100px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <img src="26c72392-12f0-45e6-9ede-975fe84d7f9c.jfif"alt="SpongeBob" class="spongebob-img">>
+            <h1>Radhitya Ibnu Rasyad</h1>
+            <p class="title">Desain Grafika | SMK Grafika Desa Putera</p>
+        </header>
+        
+        <!-- PROFILE SECTION -->
+        <div class="section">
+            <h2>👤 Profile</h2>
+            <div class="profile-text">
+                Saya adalah Siswa di bidang Desain Grafika yang memiliki minat dan semangat tinggi untuk belajar serta berkarya di dunia industri kreatif. Saya terus mengembangkan kemampuan desain dan kreativitas melalui berbagai proyek dan pengalaman belajar. Saya memiliki keinginan kuat untuk mempelajari hal-hal baru dan siap berkembang mengikuti tren desain serta teknologi kreatif.
+            </div>
+        </div>
+        
+        <!-- CONTACT SECTION -->
+        <div class="section">
+            <h2>📧 Kontak</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <strong>radityarasyad85@email.com</strong>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <strong>+62 878-6575-7223</strong>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <strong>Jakarta, Indonesia</strong>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SKILLS SECTION -->
+        <div class="section">
+            <h2>💻 Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item skill-90">
+                    <div>Adobe Photoshop</div>
+                    <div class="skill-bar"><div class="skill-progress"></div></div>
+                </div>
+                <div class="skill-item skill-80">
+                    <div>Adobe illustrator</div>
+                    <div class="skill-bar"><div class="skill-progress"></div></div>
+                </div>
+                <div class="skill-item skill-75">
+                    <div>Adobe InDesign</div>
+                    <div class="skill-bar"><div class="skill-progress"></div></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- EXPERIENCE SECTION -->
+        <div class="section">
+            <h2>💼 Experience</h2>
+            <ul>
+                <li>
+                    <strong>Magang di PT Dasa Prima Buring</strong>  | Juni 2025 - Oktober 2025
+                    <br><small>Saya memiliki pengalaman magang di PT Dasa Prima Buring di bagian, Customer Service, Digital Printing, dan Mercandise </small>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- EDUCATION SECTION -->
+        <div class="section">
+            <h2>🎓 Education</h2>
+            <ul>
+                <li>
+                    <strong>SMK Grafika Desa Putera</strong> | 2023 - Sekarang
+                    <br><small>Desain Grafika</small>
+                </li>
+            </ul>
+        </div>
+        
+        <footer>
+             "I'm Ready, I'm Ready!" - Siap bekerja dengan semangat! 🚀
+        </footer>
+    </div>
+</body>
+</html>
